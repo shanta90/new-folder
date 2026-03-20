@@ -122,6 +122,8 @@ body {
 }
 
 
+
+
 /* Premium Texture Overlay */
 .banner::before {
     content: "";
@@ -139,7 +141,7 @@ body {
 .brand-container {
     position: absolute;
     text-align: center;
-    color: #f0e6d29d;
+    color: #f0e6d2;
     /* Light color for the permanent dark banner */
     /* Creamy/Paper color */
     z-index: 2;
@@ -174,7 +176,7 @@ body {
     font-weight: 700;
     margin: 0;
     line-height: 1;
-    opacity: 0.8;
+    opacity: 0.7;
     /* Subtle ghost text for dark mode */
     text-transform: uppercase;
     letter-spacing: 20px;
@@ -190,14 +192,14 @@ body {
 
 [data-theme="light"] .brand-container p {
     opacity: 1;
-    color: black;
+    color: #f0e6d2;
 }
 
 .brand-container p {
     font-size: 1rem;
     font-family: 'Outfit', sans-serif;
     margin-top: 15px;
-    opacity: 0.9;
+    opacity: 0.8;
     letter-spacing: 8px;
     text-transform: uppercase;
     font-weight: 300;
@@ -238,6 +240,12 @@ body {
     animation-timeline: --hero-reveal;
 }
 
+/* @property --left {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+} */
+
 @keyframes reveal-masterpiece {
 
     /* Stage 1: Deep Hidden State (0% - 20%) */
@@ -245,18 +253,21 @@ body {
     20% {
         transform: translateX(-50%) translateY(300vh) translateZ(-500px) rotateY(-45deg) rotateZ(-20deg) scale(0.3);
         opacity: 0;
+        --left: 200px;
     }
 
     /* Stage 2: Rise & Dynamic Swing (20% - 75%) */
     75% {
         transform: translateX(-50%) translateY(0) translateZ(50px) rotateY(15deg) rotateZ(10deg) scale(0.85);
         opacity: 1;
+        --left: -400px;
     }
 
     /* Stage 3: Settlement to Resting Pose (75% - 100%) */
     100% {
         transform: translateX(-50%) translateY(0) translateZ(0) rotateY(-10deg) rotateZ(-10deg) scale(0.7);
         opacity: 1;
+        --left: -800px;
     }
 }
 
@@ -819,7 +830,7 @@ body {
 /* Footer Section */
 .artisanal-footer {
     padding: 10vw 10vw 5vw;
-    background: linear-gradient(to bottom, var(--bg-primary), #05050513);
+    /* background: linear-gradient(to bottom, var(--bg-primary), #050505); */
     border-top: 1px solid var(--card-border);
     color: var(--text-primary);
 }
@@ -864,6 +875,12 @@ body {
     outline: none;
 }
 
+.newsletter-input input::placeholder {
+    color: currentColor;
+    opacity: 0.5;
+    transition: color var(--transition-main), opacity var(--transition-main);
+}
+
 .newsletter-input button {
     background: transparent;
     border: none;
@@ -881,7 +898,7 @@ body {
     color: var(--text-primary);
     text-decoration: none;
     font-family: 'Outfit', sans-serif;
-    opacity: 0.8;
+    opacity: 0.7;
     transition: 0.3s;
 }
 
@@ -999,6 +1016,7 @@ body {
     from {
         transform: scale(1.1) translateY(-5%);
     }
+
     to {
         transform: scale(1) translateY(0);
     }
@@ -1009,13 +1027,13 @@ body {
     inset: 0;
     z-index: 10;
     background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 15%, transparent 85%, var(--bg-primary) 100%),
-                rgba(0, 0, 0, 0.6);
+        rgba(0, 0, 0, 0.6);
     pointer-events: none;
 }
 
 [data-theme="light"] .video-overlay {
     background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 15%, transparent 85%, var(--bg-primary) 100%),
-                rgba(184, 166, 136, 0.4);
+        rgba(184, 166, 136, 0.4);
 }
 
 .video-content {
@@ -1053,7 +1071,7 @@ body {
     background: #000;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 .video-modal.active .modal-content {
